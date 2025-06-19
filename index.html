@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>EGOILLUSION: A Hallucination Benchmark for Egocentric Video Understanding</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">EGOILLUSION: A Hallucination Benchmark for Egocentric Video Understanding</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <figure class="image">
+        <img src="static/images/hero.png" alt="Hero Diagram" style="max-width: 100%; height: auto;">
+        <figcaption class="has-text-justified mt-3" style="font-size: 1rem;">
+          <strong>Overview of the EGOILLUSION benchmark.</strong> EGOILLUSION is the first hallucination benchmark for egocentric videos, featuring 8,000 human-annotated questions covering diverse human-object interactions. It presents three core challenges:  
+          (1) <strong>Perception vs Reasoning:</strong> distinguishing between perceptual and reasoning skills by evaluating object recognition, action understanding, and scene inference;  
+          (2) <strong>Multisensory Inputs:</strong> integrating visual and auditory cues, such as object appearance, human actions, and environmental sounds, to assess multimodal alignment;  
+          (3) <strong>Question Types:</strong> supporting both closed-ended and open-ended questions, requiring models to answer factually grounded queries while reasoning about events and interactions.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Multimodal Large Language Models (MLLMs) excel at visual perception and reasoning in both third-person and egocentric videos—but they are prone to hallucinations, generating coherent yet inaccurate responses. We present EGOILLUSION, the first benchmark to evaluate MLLM hallucinations in egocentric videos. EGOILLUSION comprises 1,400 videos paired with 8,000 human-annotated open and closed-ended questions designed to trigger hallucinations in both visual and auditory cues in egocentric videos. Evaluations across nine MLLMs reveal significant challenges, including powerful MLLMs, such as Gemini achieving only ~59% accuracy. We hope EGOILLUSION spurs the development of more robust egocentric MLLMs with reduced hallucination rates. Our benchmark will be open-sourced.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="stats">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Benchmark Statistic</h2>
+      <figure class="image">
+        <img src="static/images/stats.png" alt="Hero Diagram" style="max-width: 100%; height: auto;">
+        <figcaption class="has-text-justified mt-3" style="font-size: 1rem;">
+          Our benchmark comprises a balanced distribution of 8000 total questions, evenly split between <strong>perception</strong> (50%) and <strong>reasoning</strong> (50%) based tasks. Perception-oriented tasks assess visual object identification, audio event recognition, and episodic information extraction, while reasoning tasks target episodic retrieval, temporal reasoning, and hand-object interaction understanding.        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="mitigation">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Inducing Hallucinations with EGOILLUSION</h2>
+      <figure class="image">
+        <img src="static/images/hms.png" alt="Hero Diagram" style="max-width: 100%; height: auto;">
+        <figcaption class="has-text-justified mt-3" style="font-size: 1rem;">
+          Various manipulation strategies are employed in <strong>EGOILLUSION</strong> to induce hallucinations. <strong> Prompt Injection (PI) </strong> manipulates the question by altering its type — for example, changing it from a location-based to a causal query — while introducing a false object not present in the video. <strong> Adversarial Sampling (AS) </strong> perturbs the query by replacing objects that the person is interacting with, without altering the question type. Finally, <strong> Manipulating Temporal Order (MTO) </strong> modifies the chronological order of multiple events, which can involve two separate human actions, environmental sounds, or a combination of both.</figure>
+    </div>
+  </div>
+</section>
+
+<!-- Results Section -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth is-size-7 has-text-centered">
+        <thead>
+          <tr>
+            <th class="has-text-centered" rowspan="2">Models</th>
+            <th class="has-text-centered" rowspan="2">Size</th>
+            <th class="has-text-centered" rowspan="2">Ego</th>
+            <th class="has-text-centered" colspan="2">Modality</th>
+            <th class="has-text-centered" colspan="3">Reasoning Skills</th>
+            <th class="has-text-centered" colspan="3">Perception Skills</th>
+            <th class="has-text-centered" rowspan="2">Avg</th>
+          </tr>
+          <tr>
+            <th class="has-text-centered">Vision</th>
+            <th class="has-text-centered">Audio</th>
+            <th class="has-text-centered">EIR</th>
+            <th class="has-text-centered">TR</th>
+            <th class="has-text-centered">HOI</th>
+            <th class="has-text-centered">VOI</th>
+            <th class="has-text-centered">EIE</th>
+            <th class="has-text-centered">AER</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="12" class="has-text-centered has-text-grey-light"><em>Open-Source Models</em></td></tr>
+          <tr><td>Qwen2.5VL</td><td>3B</td><td>❌</td><td>✅</td><td>❌</td><td>50.1<sub>±0.3</sub></td><td><u>67.3<sub>±0.2</sub></u></td><td>54.6<sub>±0.4</sub></td><td>56.3<sub>±0.1</sub></td><td>51.1<sub>±0.3</sub></td><td>-</td><td>55.8<sub>±0.2</sub></td></tr>
+          <tr><td>VideoLlama3</td><td>8B</td><td>✅</td><td>✅</td><td>❌</td><td>52.1<sub>±0.4</sub></td><td>59.9<sub>±0.3</sub></td><td>62.7<sub>±0.2</sub></td><td>63.9<sub>±0.5</sub></td><td>53.2<sub>±0.1</sub></td><td>-</td><td>58.3<sub>±0.3</sub></td></tr>
+          <tr><td>InternVideo</td><td>8B</td><td>✅</td><td>✅</td><td>❌</td><td>51.4<sub>±0.4</sub></td><td>64.3<sub>±0.1</sub></td><td><u>65.5<sub>±0.2</sub></u></td><td>60.8<sub>±0.3</sub></td><td>51.7<sub>±0.2</sub></td><td>-</td><td>58.7<sub>±0.3</sub></td></tr>
+          <tr><td>LLaVa-NEXT</td><td>7B</td><td>❌</td><td>✅</td><td>❌</td><td>50.1<sub>±0.2</sub></td><td>58.4<sub>±0.5</sub></td><td>64.1<sub>±0.1</sub></td><td>56.8<sub>±0.3</sub></td><td><strong>61.9<sub>±0.4</sub></strong></td><td>-</td><td>58.2<sub>±0.2</sub></td></tr>
+          <tr><td>LLaVa-OV 0.5B</td><td>0.5B</td><td>✅</td><td>✅</td><td>❌</td><td>51.2<sub>±0.3</sub></td><td>64.5<sub>±0.1</sub></td><td>61.8<sub>±0.4</sub></td><td>60.5<sub>±0.2</sub></td><td>52.4<sub>±0.5</sub></td><td>-</td><td>58.1<sub>±0.3</sub></td></tr>
+          <tr><td>LLaVa-OV</td><td>7B</td><td>✅</td><td>✅</td><td>❌</td><td>51.2<sub>±0.4</sub></td><td><strong>67.5<sub>±0.2</sub></strong></td><td>62.9<sub>±0.3</sub></td><td>58.5<sub>±0.1</sub></td><td>50.3<sub>±0.5</sub></td><td>-</td><td>58.1<sub>±0.2</sub></td></tr>
+          <tr><td>ImageBind-LLM</td><td>7B</td><td>❌</td><td>✅</td><td>✅</td><td>55.2<sub>±0.3</sub></td><td>65.6<sub>±0.4</sub></td><td>61.6<sub>±0.2</sub></td><td>52.9<sub>±0.1</sub></td><td>51.6<sub>±0.3</sub></td><td>52.2<sub>±0.5</sub></td><td>57.3<sub>±0.2</sub></td></tr>
+          <tr><td>MiniCPM</td><td>8B</td><td>❌</td><td>✅</td><td>✅</td><td><strong>57.3<sub>±0.4</sub></strong></td><td>47.3<sub>±0.1</sub></td><td><strong>66.9<sub>±0.5</sub></strong></td><td><strong>69.5<sub>±0.3</sub></strong></td><td><u>58.4<sub>±0.2</sub></u></td><td>50.1<sub>±0.4</sub></td><td><u>58.9<sub>±0.3</sub></u></td></tr>
+          <tr><td>VideoLlama2</td><td>7B</td><td>✅</td><td>✅</td><td>✅</td><td><u>56.1<sub>±0.3</sub></u></td><td>38.9<sub>±0.2</sub></td><td>40.2<sub>±0.5</sub></td><td>41.2<sub>±0.4</sub></td><td>56.8<sub>±0.1</sub></td><td><strong>52.6<sub>±0.3</sub></strong></td><td>47.6<sub>±0.2</sub></td></tr>
+
+          <tr><td colspan="12" class="has-text-centered has-text-grey-light"><em>Closed-Source Models</em></td></tr>
+          <tr><td>Gemini-Pro</td><td>-</td><td>-</td><td>✅</td><td>✅</td><td>51.4<sub>±0.2</sub></td><td>60.8<sub>±0.3</sub></td><td>61.8<sub>±0.5</sub></td><td><u>68.1<sub>±0.4</sub></u></td><td>56.5<sub>±0.1</sub></td><td><u>52.5<sub>±0.3</sub></u></td><td><strong>59.4<sub>±0.2</sub></strong></td></tr>
+        </tbody>
+      </table>
+      <p class="is-size-10 has-text-grey">
+        Performance comparison of various MLLMs on <strong>EGOILLUSION</strong> across egocentric video-language tasks: Episodic Information Reasoning (<strong>EIR</strong>), Temporal Reasoning (<strong>TR</strong>), Human-Object Interaction (<strong>HOI</strong>), Visual Object Identification (<strong>VOI</strong>), Episodic Information Extraction (<strong>EIE</strong>), and Audio Event Recognition (<strong>AER</strong>). We indicate whether the models were trained on egocentric video data and whether they leverage both vision and audio modalities. The best-performing models for each task are highlighted in <strong>bold</strong>, while the second-best scores are <u>underlined</u>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="hallucination-table">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-4">Ablations</h2>
+      <div class="columns">
+        <!-- Caption on the left -->
+        <div class="column is-half">
+          <p style="font-size: 1rem;" class="has-text-justified">
+            We compare various MLLMs across three hallucination-inducing strategies in <strong>EGOILLUSION</strong>—Prompt Injection (PI), Adversarial Sampling (AS), and Manipulating Temporal Order (MTO).
+            Overall, models tend to perform close to random guessing, revealing a consistent vulnerability to hallucinations in egocentric video understanding.
+            Among open-source models, MiniCPM and VideoLlama2 show the lowest robustness under the MTO strategy, with scores dropping to 47.3 and 38.9, indicating significant struggles with temporal coherence.
+            While Gemini-Pro outperforms most open models overall, it remains highly sensitive to misleading inputs, particularly under prompt injection, where it records the lowest PI score (53.9), highlighting a learned susceptibility from pretraining data biases.
+          </p>
+        </div>
+
+        <!-- Table on the right -->
+        <div class="column is-half">
+          <table class="table is-striped is-bordered is-fullwidth is-size-7">
+            <thead>
+              <tr style="text-align: center;">
+                <th><strong>Models</strong></th>
+                <th>PI</th>
+                <th>AS</th>
+                <th>MTO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="4" class="has-text-centered has-text-grey-light"><em>Open-Source Models</em></td></tr>
+              <tr style="text-align: center;"><td>ImageBind-LLM</td><td>54.5<sub>±0.3</sub></td><td>61.6<sub>±0.4</sub></td><td>65.6<sub>±0.2</sub></td></tr>
+              <tr style="text-align: center;"><td>Qwen2.5VL</td><td>53.2<sub>±0.2</sub></td><td>52.8<sub>±0.3</sub></td><td>67.3<sub>±0.5</sub></td></tr>
+              <tr style="text-align: center;"><td>VideoLlama3</td><td>60.1<sub>±0.4</sub></td><td>66.0<sub>±0.2</sub></td><td>59.9<sub>±0.3</sub></td></tr>
+              <tr style="text-align: center;"><td>LLaVa-NEXT</td><td>58.0<sub>±0.1</sub></td><td>65.3<sub>±0.5</sub></td><td>58.4<sub>±0.3</sub></td></tr>
+              <tr style="text-align: center;"><td>LLaVa-OV 0.5B</td><td>56.5<sub>±0.3</sub></td><td>57.2<sub>±0.4</sub></td><td>64.5<sub>±0.2</sub></td></tr>
+              <tr style="text-align: center;"><td>LLaVa-OV</td><td>54.8<sub>±0.2</sub></td><td>56.8<sub>±0.3</sub></td><td>67.5<sub>±0.4</sub></td></tr>
+              <tr style="text-align: center;"><td>MiniCPMo-2.6</td><td>58.4<sub>±0.5</sub></td><td>51.0<sub>±0.2</sub></td><td>47.3<sub>±0.3</sub></td></tr>
+              <tr style="text-align: center;"><td>VideoLlama2</td><td>58.9<sub>±0.3</sub></td><td>51.0<sub>±0.4</sub></td><td>38.9<sub>±0.2</sub></td></tr>
+              <tr><td colspan="4" class="has-text-centered has-text-grey-light"><em>Closed-Source Models</em></td></tr>
+              <tr style="text-align: center;"><td>Gemini-Pro</td><td>53.9<sub>±0.4</sub></td><td>64.9<sub>±0.2</sub></td><td>60.8<sub>±0.5</sub></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="error_analysis">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Error Analysis</h2>
+      <h3 class="title is-4"> Closed-Ended Q/A</h3>
+      <div class="columns is-vcentered">
+        <!-- Image column -->
+        <div class="column is-half">
+          <figure class="image">
+            <img src="static/images/close_ended.png" alt="Hero Diagram" style="max-width: 100%; height: auto;">
+          </figure>
+        </div>
+        <!-- Text column -->
+        <div class="column is-half has-text-justified" style="font-size: 1rem;">
+          <p>
+            Distribution of <code>&ldquo;Yes&rdquo;</code> and <code>&ldquo;No&rdquo;</code> responses of Gemini 1.5 Pro and MiniCPM in the hallucinated responses for closed-ended questions.
+            We observe a consistent trend that the model is inclined towards affirmative responses in hallucinated outputs.
+          </p>
+        </div>
+      </div>
+      <h3 class="title is-4"> Open-Ended Q/A</h3>
+      <figure class="image">
+        <img src="static/images/open_ended.png" alt="Hero Diagram" style="max-width: 100%; height: auto;">
+        <figcaption class="has-text-justified mt-3" style="font-size: 1rem;">
+          The analysis highlights common error types in responses from <strong>Gemini 1.5 Pro</strong> and <strong>MiniCPM</strong> on open-ended tasks like <em>Episodic Information Reasoning</em>. 
+          Perception errors are the most prevalent, driven by hallucination-inducing questions, with 48.6% in Gemini and 43.7% in MiniCPM. 
+          Even when perception is accurate, models often make logical and procedural errors, indicating difficulties in applying complex reasoning. 
+          These findings stress the need to enhance perceptual understanding in egocentric video tasks. </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Hallucination Examples</h2>
+
+      <div id="results-carousel" class="carousel">
+      
+        <!-- Video 1 -->
+        <div class="carousel-item active">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/046855d7-41d7-4f41-a6a7-fce921ea8133_269.968_423.106.mp4" type="video/mp4">
+          </video>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
+            <tbody>
+              <tr><th>Task</th><td>Visual Object Identification</td></tr>
+              <tr><th>Question</th><td>Did the person lift the baseball bat?</td></tr>
+              <tr><th>Expected Response</th><td>No</td></tr>
+              <tr><th>Generated Response</th><td>Yes, the driver of the car enters a park and exits his car. He lifts the baseball bat at [00:00:19].</td></tr>
+              <tr><th>Hallucination Type</th><td>action_object (adversarial_sampling)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="carousel-item">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/254029e5-fed4-40a7-bef1-12b9faff3202_1890.007_1946.240.mp4" type="video/mp4">
+          </video>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
+            <tbody>
+              <tr><th>Task</th><td>Episodic Information Extraction</td></tr>
+              <tr><th>Question</th><td>Did the person open the bottle after closing it?</td></tr>
+              <tr><th>Expected Response</th><td>No</td></tr>
+              <tr><th>Generated Response</th><td>Yes, the person opens the bottle immediately after they close it. The bottle is placed on the table at the beginning of the video (00:00:01) and then closed at (00:00:21). The person then immediately opens it at (00:00:22).</td></tr>
+              <tr><th>Hallucination Type</th><td>action_type (perception)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="carousel-item">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <source src="static/videos/ab5dc330-1bd2-40f2-87c1-dffd374e19a1_1620.000_1672.367.mp4" type="video/mp4">
+          </video>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
+            <tbody>
+              <tr><th>Task</th><td>Episodic Information Reasoning</td></tr>
+              <tr><th>Question</th><td>What did the person do with the scissors?</td></tr>
+              <tr><th>Expected Response</th><td>The person did not perform this action.</td></tr>
+              <tr><th>Generated Response</th><td>Between frames 0:49 and 0:51 the person picked up scissors to snip off the yarn ends at the end of a crochet row.</td></tr>
+              <tr><th>Hallucination Type</th><td>object_reasoning (prompt_injection)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel-container">
+        
+        <!-- Slide 1 -->
+        <div class="carousel-item">
+          <video poster="" autoplay controls muted loop width="50%">
+            <source src="static/videos/046855d7-41d7-4f41-a6a7-fce921ea8133_269.968_423.106.mp4" type="video/mp4">
+          </video>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
+            <tbody>
+              <tr><th>Task</th><td>Visual Object Identification</td></tr>
+              <tr><th>Question</th><td>Did the person lift the baseball bat?</td></tr>
+              <tr><th>Expected Response</th><td>No</td></tr>
+              <tr><th>Generated Response</th><td>Yes, the driver of the car enters a park and exits his car. He lifts the baseball bat at [00:00:19].</td></tr>
+              <tr><th>Hallucination Type</th><td>action_object (adversarial_sampling)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <video poster="" autoplay controls muted loop width="50%">
+            <source src="static/videos/254029e5-fed4-40a7-bef1-12b9faff3202_1890.007_1946.240.mp4" type="video/mp4">
+          </video>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
+            <tbody>
+              <tr><th>Task</th><td>Episodic Information Extraction</td></tr>
+              <tr><th>Question</th><td>Did the person open the bottle after closing it?</td></tr>
+              <tr><th>Expected Response</th><td>No</td></tr>
+              <tr><th>Generated Response</th><td>Yes, the person opens the bottle immediately after they close it. The bottle is placed on the table at the beginning of the video (00:00:01) and then closed at (00:00:21). The person then immediately opens it at (00:00:22).</td></tr>
+              <tr><th>Hallucination Type</th><td>action_type (perception)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <video poster="" autoplay controls muted loop width="50%">
+            <source src="static/videos/ab5dc330-1bd2-40f2-87c1-dffd374e19a1_1620.000_1672.367.mp4" type="video/mp4">
+          </video>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
+            <tbody>
+              <tr><th>Task</th><td>Episodic Information Reasoning</td></tr>
+              <tr><th>Question</th><td>What did the person do with the scissors?</td></tr>
+              <tr><th>Expected Response</th><td>The person did not perform this action.</td></tr>
+              <tr><th>Generated Response</th><td>Between frames 0:49 and 0:51 the person picked up scissors to snip off the yarn ends at the end of a crochet row.</td></tr>
+              <tr><th>Hallucination Type</th><td>object_reasoning (prompt_injection)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
