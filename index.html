@@ -43,6 +43,14 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize all carousels
+    bulmaCarousel.attach('#results-carousel-1', { slidesToScroll: 1, slidesToShow: 1, loop: true });
+    bulmaCarousel.attach('#results-carousel-2', { slidesToScroll: 1, slidesToShow: 1, loop: true });
+  });
+</script>
+
 </head>
 <body>
 
@@ -249,16 +257,13 @@
   </div>
 </section>
 
-
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Hallucination Examples</h2>
-
-      <div id="results-carousel" class="carousel">
-      
-        <!-- Video 1 -->
-        <div class="carousel-item active">
+      <div id="results-carousel-1" class="carousel">
+        <!-- Carousel items... -->
+        <div class="carousel-item is-active">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <source src="static/videos/046855d7-41d7-4f41-a6a7-fce921ea8133_269.968_423.106.mp4" type="video/mp4">
           </video>
@@ -272,8 +277,6 @@
             </tbody>
           </table>
         </div>
-
-        <!-- Video 2 -->
         <div class="carousel-item">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <source src="static/videos/254029e5-fed4-40a7-bef1-12b9faff3202_1890.007_1946.240.mp4" type="video/mp4">
@@ -288,8 +291,6 @@
             </tbody>
           </table>
         </div>
-
-        <!-- Video 3 -->
         <div class="carousel-item">
           <video poster="" id="video3" autoplay controls muted loop height="100%">
             <source src="static/videos/ab5dc330-1bd2-40f2-87c1-dffd374e19a1_1620.000_1672.367.mp4" type="video/mp4">
@@ -304,75 +305,11 @@
             </tbody>
           </table>
         </div>
-        
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel-container">
-        
-        <!-- Slide 1 -->
-        <div class="carousel-item">
-          <video poster="" autoplay controls muted loop width="50%">
-            <source src="static/videos/046855d7-41d7-4f41-a6a7-fce921ea8133_269.968_423.106.mp4" type="video/mp4">
-          </video>
-          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
-            <tbody>
-              <tr><th>Task</th><td>Visual Object Identification</td></tr>
-              <tr><th>Question</th><td>Did the person lift the baseball bat?</td></tr>
-              <tr><th>Expected Response</th><td>No</td></tr>
-              <tr><th>Generated Response</th><td>Yes, the driver of the car enters a park and exits his car. He lifts the baseball bat at [00:00:19].</td></tr>
-              <tr><th>Hallucination Type</th><td>action_object (adversarial_sampling)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <video poster="" autoplay controls muted loop width="50%">
-            <source src="static/videos/254029e5-fed4-40a7-bef1-12b9faff3202_1890.007_1946.240.mp4" type="video/mp4">
-          </video>
-          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
-            <tbody>
-              <tr><th>Task</th><td>Episodic Information Extraction</td></tr>
-              <tr><th>Question</th><td>Did the person open the bottle after closing it?</td></tr>
-              <tr><th>Expected Response</th><td>No</td></tr>
-              <tr><th>Generated Response</th><td>Yes, the person opens the bottle immediately after they close it. The bottle is placed on the table at the beginning of the video (00:00:01) and then closed at (00:00:21). The person then immediately opens it at (00:00:22).</td></tr>
-              <tr><th>Hallucination Type</th><td>action_type (perception)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item">
-          <video poster="" autoplay controls muted loop width="50%">
-            <source src="static/videos/ab5dc330-1bd2-40f2-87c1-dffd374e19a1_1620.000_1672.367.mp4" type="video/mp4">
-          </video>
-          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-2">
-            <tbody>
-              <tr><th>Task</th><td>Episodic Information Reasoning</td></tr>
-              <tr><th>Question</th><td>What did the person do with the scissors?</td></tr>
-              <tr><th>Expected Response</th><td>The person did not perform this action.</td></tr>
-              <tr><th>Generated Response</th><td>Between frames 0:49 and 0:51 the person picked up scissors to snip off the yarn ends at the end of a crochet row.</td></tr>
-              <tr><th>Hallucination Type</th><td>object_reasoning (prompt_injection)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!--BibTex citation -->
